@@ -1,0 +1,42 @@
+{
+  "preset": "psr12",
+  "rules": {
+    "group_import": true,
+    "single_import_per_statement": {
+      "group_to_single_imports": false
+    },
+    "no_unused_imports": true,
+    "array_identation": true,
+    "array_syntax": {
+      "syntax": "short"
+    },
+    "binary_operator_spaces": {
+      "default": "single_space",
+      "operators": {
+        "=": "align_single_space_minimal",
+        "=>": "align_single_space_minimal"
+      }
+    },
+    "blank_line_after_namespace": true,
+    "blank_line_after_opening_tag": false,
+    "class_attributes_separation": {
+      "elements": {
+        "property": "one"
+      }
+    },
+    "concat_space": {
+      "spacing": "none"
+    },
+    "declare_equal_normalize": {
+      "space": "single"
+    },
+    "elseif": false,
+    "encoding": true,
+    "indentation_type": true,
+    "no_useless_else": false,
+    "no_useless_return": false,
+    "ordered_imports": {
+      "imports_order":
+    }
+  }
+}
