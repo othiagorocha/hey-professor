@@ -5,17 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Question;
 use Illuminate\Http\RedirectResponse;
 
-
 class QuestionController extends Controller
 {
-  public function store(): RedirectResponse
-  {
-    $attributes = request()->validate([
-      'question' => ['required']
-    ]);
+    public function store(): RedirectResponse
+    {
+        $attributes = request()->validate([
+            'question' => ['required', 'min:10'],
+        ]);
 
-    Question::query()->create($attributes);
+        Question::query()->create($attributes);
 
-    return to_route('dashboard');
-  }
+        return to_route('dashboard');
+    }
 }
