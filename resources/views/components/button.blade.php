@@ -1,0 +1,5 @@
+@props([])
+
+<button>
+  {{ $slot }}
+</button>
