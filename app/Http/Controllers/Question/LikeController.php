@@ -10,9 +10,7 @@ class LikeController extends Controller
 {
     public function __invoke(Question $question): RedirectResponse // Route Model Binding -> Valida se a questão existe ou não
     {
-        /** @var \App\Models\User $user  */
-        $user = auth()->user();
-        $user->like($question);
+        user()->like($question);
 
         return back();
     }
