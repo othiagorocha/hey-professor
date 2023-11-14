@@ -12,7 +12,7 @@
           class="w-5 h-5 hover:text-emerald-400 transition-colors"
           id="thumbs-up"
         />
-        <span>{{ $question->likes }}</span>
+        <span>{{ $question->votes_sum_like ?: 0 }}</span>
       </button>
     </x-form>
     <x-form :action="route('question.unlike', $question)">
@@ -21,7 +21,7 @@
           class="w-5 h-5 hover:text-red-400 transition-colors"
           id="thumbs-down"
         />
-        <span>{{ $question->unlikes }}</span>
+        <span>{{ $question->votes_sum_unlike ?: 0 }}</span>
       </button>
     </x-form>
   </div>
