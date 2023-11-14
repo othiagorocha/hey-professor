@@ -4,6 +4,7 @@
   class="flex flex-col gap-5"
   action="{{ $action }}"
   method="POST"
+  {{ $attributes }}
 >
   @csrf
 
