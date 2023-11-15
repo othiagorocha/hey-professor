@@ -21,6 +21,12 @@
           >
             {{ __('Dashboard') }}
           </x-nav-link>
+          <x-nav-link
+            :href="route('question.index')"
+            :active="request()->routeIs('question.index')"
+          >
+            {{ __('My Questions') }}
+          </x-nav-link>
         </div>
       </div>
 
@@ -149,6 +155,12 @@
         :active="request()->routeIs('dashboard')"
       >
         {{ __('Dashboard') }}
+      </x-responsive-nav-link>
+      <x-responsive-nav-link
+        :href="route('question.index')"
+        :active="request()->routeIs('question.index')"
+      >
+        {{ __('My Questions') }}
       </x-responsive-nav-link>
     </div>
 
