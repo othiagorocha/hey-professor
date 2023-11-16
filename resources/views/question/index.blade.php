@@ -22,10 +22,7 @@
     {{-- Drafts --}}
     <div class="dark:text-gray-300 uppercase mb-3 font-bold">
       My Drafts
-
-
     </div>
-
 
     <div class="dark:text-gray-400 space-y-4">
       <x-table>
@@ -35,7 +32,6 @@
             <x-table.th>Actions</x-table.th>
           </tr>
         </x-table.thead>
-
         <tbody>
           @foreach ($questions->where('draft', true) as $question)
             <x-table.tr>
@@ -47,7 +43,7 @@
                 >
                   <button
                     type="submit"
-                    class="hover:underline text-blue-500"
+                    class="hover:underline w-fit text-blue-500"
                   >
                     Publish
                   </button>
@@ -58,9 +54,9 @@
                 >
                   <button
                     type="submit"
-                    class="hover:underline text-red-500"
+                    class="hover:underline text-red-500 w-fit"
                   >
-                    >
+
                     Delete
                   </button>
                 </x-form>
@@ -91,7 +87,21 @@
           @foreach ($questions->where('draft', false) as $question)
             <x-table.tr>
               <x-table.td>{{ $question->question }}</x-table.td>
-              <x-table.td>[ deletar ] [ publicar ]</x-table.td>
+              <x-table.td>
+                <x-form
+                  :action="route('question.destroy', $question)"
+                  delete
+                >
+                  <button
+                    type="submit"
+                    class="hover:underline text-red-500 w-fit"
+                  >
+
+                    Delete
+                  </button>
+                </x-form>
+              </x-table.td>
+
             </x-table.tr>
           @endforeach
         </tbody>
