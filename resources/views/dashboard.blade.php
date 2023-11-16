@@ -8,9 +8,9 @@
   <x-container>
     {{-- listagem --}}
 
-    <div class="dark:text-gray-300 uppercase mb-1 font-bold">List of questions</div>
+    <div class="mb-1 font-bold uppercase dark:text-gray-300">List of questions</div>
 
-    <div class="dark:text-gray-400 space-y-4">
+    <div class="space-y-4 dark:text-gray-400">
       @foreach ($questions as $item)
         <x-question :question="$item" />
       @endforeach

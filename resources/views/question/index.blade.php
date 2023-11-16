@@ -17,14 +17,14 @@
       </div>
     </x-form>
 
-    <hr class="border-gray-700 my-4 border-dashed">
+    <hr class="my-4 border-dashed border-gray-700">
 
     {{-- Drafts --}}
-    <div class="dark:text-gray-300 uppercase mb-3 font-bold">
+    <div class="mb-3 font-bold uppercase dark:text-gray-300">
       My Drafts
     </div>
 
-    <div class="dark:text-gray-400 space-y-4">
+    <div class="space-y-4 dark:text-gray-400">
       <x-table>
         <x-table.thead>
           <tr>
@@ -43,7 +43,7 @@
                 >
                   <button
                     type="submit"
-                    class="hover:underline w-fit text-blue-500"
+                    class="w-fit text-blue-500 hover:underline"
                   >
                     Publish
                   </button>
@@ -54,7 +54,7 @@
                 >
                   <button
                     type="submit"
-                    class="hover:underline text-red-500 w-fit"
+                    class="w-fit text-red-500 hover:underline"
                   >
 
                     Delete
@@ -67,14 +67,14 @@
         </tbody>
       </x-table>
     </div>
-    <hr class="border-gray-700 my-4 border-dashed">
+    <hr class="my-4 border-dashed border-gray-700">
 
     {{-- Questions --}}
-    <div class="dark:text-gray-300 uppercase mb-3 font-bold">
+    <div class="mb-3 font-bold uppercase dark:text-gray-300">
       My Questions
     </div>
 
-    <div class="dark:text-gray-400 space-y-4">
+    <div class="space-y-4 dark:text-gray-400">
       <x-table>
         <x-table.thead>
           <tr>
@@ -94,9 +94,8 @@
                 >
                   <button
                     type="submit"
-                    class="hover:underline text-red-500 w-fit"
+                    class="w-fit text-red-500 hover:underline"
                   >
-
                     Delete
                   </button>
                 </x-form>
