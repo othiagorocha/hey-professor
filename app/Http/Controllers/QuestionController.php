@@ -37,9 +37,10 @@ class QuestionController extends Controller
         return back();
     }
 
-    public function edit(Question $question): void
+    public function edit(Question $question): View
     {
-        // return view('question.edit');
+        return view('question.edit', compact($question));
+        // return view('question.edit', ['question' => $question]);
     }
 
     public function destroy(Question $question): RedirectResponse
