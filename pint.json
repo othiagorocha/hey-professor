@@ -1,7 +1,7 @@
 {
   "preset": "psr12",
   "rules": {
-    "group_import": false,
+    "group_import": true,
     "single_import_per_statement": {
       "group_to_single_imports": false
     },
