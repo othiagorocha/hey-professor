@@ -6,8 +6,8 @@
   </x-slot>
 
   <x-container>
-    <x-form :action="route('question.store', $question)">
-      <x-textarea label="Question" name="question" />
+    <x-form :action="route('question.update', $question)" put>
+      <x-textarea label="Question" name="question" :value="$question->question" />
       <div class="flex gap-1">
         <x-btn.primary>Save</x-btn.primary>
         <x-btn.reset type="reset">Cancel</x-btn.reset>
