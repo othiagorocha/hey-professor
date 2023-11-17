@@ -8,12 +8,15 @@
   <x-container>
     {{-- listagem --}}
 
-    <div class="mb-1 font-bold uppercase dark:text-gray-300">List of questions</div>
+    <div class="mb-1 font-bold uppercase dark:text-gray-300">List of
+      questions</div>
 
     <div class="space-y-4 dark:text-gray-400">
       @foreach ($questions as $item)
         <x-question :question="$item" />
       @endforeach
+
+      {{ $questions->links() }}
     </div>
 
   </x-container>
