@@ -11,15 +11,11 @@ use function Pest\Laravel\put;
 it('should be able to update a question', function () {
     $user     = User::factory()->create();
     $question = Question::factory()->for($user, 'createdBy')->create(['draft' => true]);
-
     actingAs($user);
-
     put(route('question.update', $question), [
         'question' => 'Is a updated question?',
     ])->assertRedirect();
-
     $question->refresh();
-
     expect($question)->question->toBe('Is a updated question?');
 });
 

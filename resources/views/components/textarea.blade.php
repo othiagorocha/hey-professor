@@ -1,24 +1,21 @@
-@props(['label', 'name'])
-
+@props(['label', 'name', 'value' => null])
 <div>
   <label
-    for="question"
-    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-  >
+    class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+    for="question">
     {{ $label }}
   </label>
   <textarea
-    name="{{ $name }}"
+    class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
     id="{{ $name }}"
+    name="{{ $name }}"
     rows="4"
-    class="block p-2.5 w-full text-sm text-gray-900
-        bg-gray-50 rounded-lg border border-gray-300
-        focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700
-        dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
-        dark:focus:ring-blue-500 dark:focus:border-blue-500"
-    placeholder="Ask me anything..."
-  >{{ old($name) }}</textarea>
+    placeholder="Ask me anything...">
+    {{ old($name, $value) }}
+  </textarea>
   @error($name)
-    <span class=" text-red-400">{{ $message }}</span>
+    <span class="text-red-400">
+      {{ $message }}
+    </span>
   @enderror
 </div>
