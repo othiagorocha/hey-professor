@@ -36,7 +36,7 @@ class QuestionController extends Controller
 
         return back();
     }
-    public function edit(Question $question): View
+    public function edit(Question $question): View // Route Model Binding
     {
         $this->authorize('update', $question);
 
@@ -61,10 +61,17 @@ class QuestionController extends Controller
 
         return to_route('question.index');
     }
+    public function archive(Question $question): RedirectResponse
+    {
+        $this->authorize('archive', $question);
+        $question->delete();
+
+        return back();
+    }
     public function destroy(Question $question): RedirectResponse
     {
         $this->authorize('destroy', $question);
-        $question->delete();
+        $question->forceDelete();
 
         return back();
     }
