@@ -7,10 +7,7 @@
 
   <x-container>
     <x-form :action="route('question.store')">
-      <x-textarea
-        label="Question"
-        name="question"
-      />
+      <x-textarea name="question" label="Question" />
       <div class="flex gap-1">
         <x-btn.primary>Save</x-btn.primary>
         <x-btn.reset type="reset">Cancel</x-btn.reset>
@@ -39,24 +36,19 @@
               <x-table.td>
                 <x-form
                   :action="route('question.publish', $question)"
-                  put
-                >
+                  put>
                   <button
-                    type="submit"
                     class="w-fit text-blue-500 hover:underline"
-                  >
+                    type="submit">
                     Publish
                   </button>
                 </x-form>
                 <x-form
                   :action="route('question.destroy', $question)"
-                  delete
-                >
+                  delete>
                   <button
-                    type="submit"
                     class="w-fit text-red-500 hover:underline"
-                  >
-
+                    type="submit">
                     Delete
                   </button>
                 </x-form>
@@ -70,7 +62,8 @@
     <hr class="my-4 border-dashed border-gray-700">
 
     {{-- Questions --}}
-    <div class="mb-3 font-bold uppercase dark:text-gray-300">
+    <div
+      class="mb-3 font-bold uppercase dark:text-gray-300">
       My Questions
     </div>
 
@@ -90,12 +83,10 @@
               <x-table.td>
                 <x-form
                   :action="route('question.destroy', $question)"
-                  delete
-                >
+                  delete>
                   <button
-                    type="submit"
                     class="w-fit text-red-500 hover:underline"
-                  >
+                    type="submit">
                     Delete
                   </button>
                 </x-form>
