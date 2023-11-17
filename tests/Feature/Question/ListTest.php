@@ -2,6 +2,7 @@
 
 use App\Models\Question;
 use App\Models\User;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;
@@ -20,4 +21,14 @@ it('should list all the questions', function () {
     foreach ($questions as $q) {
         $response->assertSee($q->question);
     }
+});
+
+it('should paginate the result', function () {
+    $user      = User::factory()->create();
+    $questions = Question::factory()->count(20)->create();
+
+    actingAs($user);
+    get(route('dashboard'))
+      ->assertViewHas('questions', fn ($value) => $value instanceof LengthAwarePaginator)
+    ;
 });
