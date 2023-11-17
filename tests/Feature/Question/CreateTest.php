@@ -1,14 +1,11 @@
 <?php
 
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\assertDatabaseCount;
 use function Pest\Laravel\assertDatabaseHas;
 use function Pest\Laravel\post;
-
-uses(RefreshDatabase::class);
 
 it('should be able to create a new question bigger than 255 characters', function () {
     // Arrange :: preparar
@@ -26,7 +23,7 @@ it('should be able to create a new question bigger than 255 characters', functio
     assertDatabaseHas('questions', ['question' => str_repeat('*', 260).'?']);
 });
 
-it('should check if ends with question mark?', function () {
+it('should check if ends with question mark "?"', function () {
     // Arrange :: preparar
     $user = User::factory()->create();
     actingAs($user);
