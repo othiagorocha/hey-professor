@@ -4,6 +4,7 @@ use App\Models\Question;
 use App\Models\User;
 
 use function Pest\Laravel\actingAs;
+use function Pest\Laravel\assertNotSoftDeleted;
 use function Pest\Laravel\assertSoftDeleted;
 use function Pest\Laravel\patch;
 
@@ -40,5 +41,26 @@ it('should make sure that only the person who has created the question can archi
 
     actingAs($rightUser);
     patch(route('question.archive', $question))
-      ->assertRedirect();
+      ->assertRedirect()
+    ;
+});
+
+it('should be able to restore an archived question', function () {
+    $user     = User::factory()->create();
+    $question = Question::factory()
+      ->for($user, 'createdBy')
+      ->create(['draft' => true, 'deleted_at' => now()])
+    ;
+
+    actingAs($user);
+
+    patch(route('question.restore', $question))
+      ->assertRedirect()
+    ;
+
+    assertNotSoftDeleted('questions', ['id' => $question->id]);
+
+    expect($question)
+      ->refresh()
+      ->deleted_at->toBeNull();
 });
