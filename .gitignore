@@ -17,5 +17,4 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
-_PROGRESS
-_COURSE_COMMANDS
+/__course
