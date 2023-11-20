@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\Github;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Question;
@@ -7,14 +8,15 @@ use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    if (app()->isLocal()) {
-        auth()->loginUsingId(1);
-
-        return to_route('dashboard');
-    }
-
+    // if (app()->isLocal()) {
+    //   auth()->loginUsingId(1);
+    //   return to_route('dashboard');
+    // }
     return view('welcome');
 });
+
+Route::get('/github/login', Github\RedirectController::class)->name('github.login');
+Route::get('/github/callback', Github\CallbackController::class)->name('github.callback');
 
 Route::middleware('auth')->group(function () {
     #region Dashboard Routes
